@@ -16,7 +16,7 @@ private:
     string songName;
     string musicianName;
     string filePath;
-    string imagePath; // Added imagePath attribute
+    string imagePath;
 
 public:
     Song(const string& songName, const string& musicianName,
@@ -40,7 +40,6 @@ public:
         return songName + "|" + musicianName + "|" + filePath + "|" + imagePath;
     }
 
-    // Deserialize Song from string
     static Song deserialize(const string& data) {
         size_t pos1 = data.find('|');
         size_t pos2 = data.find('|', pos1 + 1);
@@ -55,10 +54,10 @@ public:
     }
 };
 
-class listener: public User {
+class listener : public User {
 private:
     string name;
-    vector<Song> collection; 
+    vector<Song> collection;
     vector<Song> favorites;
 
 public:
@@ -95,7 +94,7 @@ public:
     int addToFavorites(const string& songName) {
         loadFromFile();
         for (const auto& song : collection) {
-            if (song.getSongName() == songName){
+            if (song.getSongName() == songName) {
                 if (find_if(favorites.begin(), favorites.end(),
                             [&songName](const Song& fav) { return fav.getSongName() == songName; }) == favorites.end()) {
                     favorites.push_back(song);
@@ -106,13 +105,13 @@ public:
                     return 2;
                 }
             }
-            return 3;   
         }
         cout << "Song '" << songName << "' not found in the collection." << endl;
-        return 4;
+        return 3;
     }
+
     int removeFromFavorites(const string& songName) {
-        loadFromFile(); // Ensure the favorites list is up-to-date
+        loadFromFile();
         auto it = find_if(favorites.begin(), favorites.end(),
                         [&songName](const Song& song) { return song.getSongName() == songName; });
 
@@ -121,12 +120,10 @@ public:
             saveToFile();
             return 1;
         } else {
+            cout << "Song '" << songName << "' not found in favorites." << endl;
             return 2;
         }
-        return 3;
     }
-
-    
 
     void saveToFile() const {
         ofstream outFile("collection.txt");
@@ -136,7 +133,7 @@ public:
         }
 
         outFile << "Collection\n";
-        for (const auto& song : collection) {
+        for (const auto& song : collection) { 
             outFile << song.serialize() << endl;
         }
 
@@ -149,6 +146,8 @@ public:
     }
 
     void loadFromFile() {
+        collection.clear();  // Clear collection and favorites before loading
+        favorites.clear();
         ifstream inFile("collection.txt");
         if (!inFile) {
             cerr << "Error opening file for reading." << endl;
@@ -174,7 +173,7 @@ public:
         inFile.close();
     }
 
-    bool isFavorites(const string &name) const {
+    bool isFavorites(const string& name) const {
         for (const auto& song : favorites) {
             if (song.getSongName() == name) {
                 return true;
@@ -183,7 +182,6 @@ public:
         return false;
     }
 
-    // Getter for the collection
     const vector<Song>& getCollection() const {
         return collection;
     }
@@ -192,24 +190,5 @@ public:
         return favorites;
     }
 };
-
-void addSong(vector<Song>& songList) {
-    string songName, musicianName, filePath, imagePath;
-
-    cout << "Enter song name: ";
-    getline(cin, songName);
-
-    cout << "Enter musician name: ";
-    getline(cin, musicianName);
-
-    cout << "Enter file path: ";
-    getline(cin, filePath);
-
-    cout << "Enter image path: ";
-    getline(cin, imagePath);
-
-    Song newSong(songName, musicianName, filePath, imagePath);
-    songList.push_back(newSong);
-}
 
 #endif

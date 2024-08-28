@@ -4,6 +4,7 @@
 #include "error.hpp"
 #include "listener.hpp"
 #include "User.hpp"
+#include "tinyfiledialogs.h"
 
 using namespace sf;
 using namespace std;
@@ -16,6 +17,48 @@ int loadUpload(string);
 Color color(0x071952FF);
 Color color2(0xFD3A69FF);
 Color color3(0x6F6F6FFF);
+
+std::string openFileDialog()
+{
+    const char *filterPatterns[] = {"*.wav", "*.ogg"};
+    const char *filePath = tinyfd_openFileDialog(
+        "Select an Music File",
+        "",
+        4,
+        filterPatterns,
+        NULL,
+        0);
+
+    if (filePath)
+    {
+        return std::string(filePath);
+    }
+    else
+    {
+        return "";
+    }
+}
+
+std::string openFileDialogImage()
+{
+    const char *filterPatterns[] = {"*.png", "*.jpg", "*.jpeg", "*.bmp"};
+    const char *imagePath = tinyfd_openFileDialog(
+        "Select an Image File",
+        "",
+        4,
+        filterPatterns,
+        NULL,
+        0);
+
+    if (imagePath)
+    {
+        return std::string(imagePath);
+    }
+    else
+    {
+        return "";
+    }
+}
 
 int home(string username = "Listener")
 {
@@ -155,7 +198,7 @@ int home(string username = "Listener")
             float scaleX = 80.0f / songSprites[i].getLocalBounds().width;
             float scaleY = 80.0f / songSprites[i].getLocalBounds().height;
             songSprites[i].setScale(scaleX, scaleY);
-            songSprites[i].setPosition(150, 150 + i * 200);
+            songSprites[i].setPosition(150, 150 + i * 100);
 
             Texture song2Texture;
             if (!song2Texture.loadFromFile(songs[i].getImagePath()))
@@ -167,7 +210,7 @@ int home(string username = "Listener")
             float scaleX2 = 80.0f / song2Sprite.getLocalBounds().width;
             float scaleY2 = 80.0f / song2Sprite.getLocalBounds().height;
             song2Sprite.setScale(scaleX2, scaleY2);
-            song2Sprite.setPosition(150, 150 + i * 200);
+            song2Sprite.setPosition(150, 150 + i * 100);
 
             Text songNameText(songs[i].getSongName(), font, 20);
             songNameText.setFillColor(color);
@@ -328,7 +371,7 @@ int loadFavorites(string username = "Listener")
             float scaleX = 80.0f / songSprites[i].getLocalBounds().width;
             float scaleY = 80.0f / songSprites[i].getLocalBounds().height;
             songSprites[i].setScale(scaleX, scaleY);
-            songSprites[i].setPosition(150, 150 + i * 200);
+            songSprites[i].setPosition(150, 150 + i * 100);
 
             Texture song2Texture;
             if (!song2Texture.loadFromFile(favouriteSongs[i].getImagePath()))
@@ -340,7 +383,7 @@ int loadFavorites(string username = "Listener")
             float scaleX2 = 80.0f / song2Sprite.getLocalBounds().width;
             float scaleY2 = 80.0f / song2Sprite.getLocalBounds().height;
             song2Sprite.setScale(scaleX2, scaleY2);
-            song2Sprite.setPosition(150, 150 + i * 200);
+            song2Sprite.setPosition(150, 150 + i * 100);
 
             Text songNameText(favouriteSongs[i].getSongName(), font, 20);
             songNameText.setFillColor(color);
@@ -364,13 +407,14 @@ int loadUpload(string username = "Listener")
 {
     RenderWindow window(sf::VideoMode(700, 600), "Melody Tunes - Home");
 
-    Texture background, homeButton, favouritesButton, logoutButton, uploadButton, uploadMusic;
+    Texture background, homeButton, favouritesButton, logoutButton, uploadButton, uploadMusic, uploadImage;
     if (!background.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/homePage.png") ||
         !homeButton.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/home.png") ||
         !favouritesButton.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/favourites.png") ||
         !logoutButton.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/logout.png") ||
         !uploadButton.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/upload.png") ||
-        !uploadMusic.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/uploadMusic.png"))
+        !uploadMusic.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/uploadMusic.png") ||
+        !uploadImage.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/uploadImage.png")) 
     {
         error("Error Loading Image File.");
         return 1;
@@ -398,6 +442,7 @@ int loadUpload(string username = "Listener")
     Sprite logout(logoutButton);
     Sprite upload(uploadButton);
     Sprite uploadMusicSprite(uploadMusic);
+    Sprite uploadImageSprite(uploadImage);
 
     listener listener(username);
     listener.loadFromFile();
@@ -460,24 +505,14 @@ int loadUpload(string username = "Listener")
     inputBox2.setFillColor(Color::White);
 
     uploadMusicSprite.setPosition(340, 290);
-    RectangleShape inputBox3(Vector2f(250, 40));
-    inputBox3.setPosition(340, 290);
-    inputBox3.setOutlineThickness(2);
-    inputBox3.setOutlineColor(color);
-    inputBox3.setFillColor(Color::White);
-
-    RectangleShape inputBox4(Vector2f(250, 40));
-    inputBox4.setPosition(340, 360);
-    inputBox4.setOutlineThickness(2);
-    inputBox4.setOutlineColor(color);
-    inputBox4.setFillColor(Color::White);
+    uploadImageSprite.setPosition(340, 360);
 
     string songName = "";
     string musicianName = "";
     string filePath = "";
     string imagePath = "";
 
-    bool inputActive[4] = {false, false, false, false};
+    bool inputActive[2] = {false, false};
     bool pushedInput = false;
 
     while (window.isOpen())
@@ -492,13 +527,9 @@ int loadUpload(string username = "Listener")
             {
                 inputActive[0] = inputBox1.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y);
                 inputActive[1] = inputBox2.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y);
-                inputActive[2] = inputBox3.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y);
-                inputActive[3] = inputBox4.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y);
 
                 inputBox1.setOutlineColor(inputActive[0] ? color2 : color);
                 inputBox2.setOutlineColor(inputActive[1] ? color2 : color);
-                inputBox3.setOutlineColor(inputActive[2] ? color2 : color);
-                inputBox4.setOutlineColor(inputActive[3] ? color2 : color);
 
                 if (homeSprite.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
                 {
@@ -519,15 +550,23 @@ int loadUpload(string username = "Listener")
                     return 1;
                 }
                 // }
-                // if (uploadMusicSprite.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
-                // {
+                if (uploadMusicSprite.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+                {
 
-                //     filePath = dialog(); // Open file dialog to select file
-                //     if (filePath.empty()) {
-                //         showPopup(window, "No valid file selected. Exiting...", Vector2f(400, 60), "Error");
-                //         loadUpload(username);
-                //     }
-                // }
+                    filePath = openFileDialog(); // Open file dialog to select file
+                    if (filePath.empty()) {
+                        showPopup(window, "No valid file selected", Vector2f(400, 60), "Error");
+                        loadUpload(username);
+                    }
+                }
+                if (uploadImageSprite.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+                {
+                    imagePath = openFileDialogImage(); // Open file dialog to select file
+                    if (imagePath.empty()) {
+                        showPopup(window, "No valid file selected", Vector2f(400, 60), "Error");
+                        loadUpload(username);
+                    }
+                }
                 if (logout.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
                 {
                     showPopup(window, "Logging Out...", Vector2f(400, 60), "Error");
@@ -552,15 +591,11 @@ int loadUpload(string username = "Listener")
                 {
                     if (inputActive[0] && !songName.empty()) songName.pop_back();
                     if (inputActive[1] && !musicianName.empty()) musicianName.pop_back();
-                    if (inputActive[2] && !filePath.empty()) filePath.pop_back();
-                    if (inputActive[3] && !imagePath.empty()) imagePath.pop_back();
                 }
                 else if (event.text.unicode < 128)
                 {
                     if (inputActive[0]) songName += static_cast<char>(event.text.unicode);
                     if (inputActive[1]) musicianName += static_cast<char>(event.text.unicode);
-                    if (inputActive[2]) filePath += static_cast<char>(event.text.unicode);
-                    if (inputActive[3]) imagePath += static_cast<char>(event.text.unicode);
                 }
             }
         }
@@ -573,11 +608,11 @@ int loadUpload(string username = "Listener")
         musicianNameInput.setFillColor(color);
 
         Text filePathInput(filePath, font, 10);
-        filePathInput.setPosition(350, 295);
+        filePathInput.setPosition(350, 315);
         filePathInput.setFillColor(color);
 
         Text imagePathInput(imagePath, font, 10);
-        imagePathInput.setPosition(350, 365);
+        imagePathInput.setPosition(350, 385);
         imagePathInput.setFillColor(color);
 
         window.draw(s);
@@ -594,9 +629,8 @@ int loadUpload(string username = "Listener")
         window.draw(imagePathText);
         window.draw(inputBox1);
         window.draw(inputBox2);
-        window.draw(inputBox3);
-        window.draw(inputBox4);
-        // window.draw(uploadMusicSprite);
+        window.draw(uploadMusicSprite);
+        window.draw(uploadImageSprite);
         window.draw(songNameInput);
         window.draw(filePathInput);
         window.draw(musicianNameInput);

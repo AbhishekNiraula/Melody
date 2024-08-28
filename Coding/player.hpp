@@ -1,3 +1,6 @@
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
+
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -16,6 +19,7 @@ enum class PlayMode {
     RepeatOff,
     Shuffle
 };
+int home(string username);
 
 int player(string username, const string& songFilePath, const string& songImagePath, const string& songName, const string& musicianName)
 {
@@ -54,8 +58,8 @@ int player(string username, const string& songFilePath, const string& songImageP
         showPopup(window, "Error Loading Music Image", Vector2f(400, 60), "Error");
     }
     musicSprite.setSmooth(true);
-    Texture playTexture, pauseTexture, playBackTexture, playForwardTexture, playNextTexture, playPrevTexture, repeatTexture, nonRepeatTexture, shuffleTexture, heartFillTexture, heartStrokeTexture;
-    if (!playTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/play.png") || !pauseTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/pause.png") || !playBackTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/arrow-left.png") || !playForwardTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/arrow-right.png") || !playPrevTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/previous.png") || !playNextTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/next.png") || !repeatTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Repeat.png") || !nonRepeatTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Non-Repeat.png") || !shuffleTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Shuffle.png") || !heartFillTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/heart-fill.png") || !heartStrokeTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/heart-stroke.png"))
+    Texture playTexture, pauseTexture, playBackTexture, playForwardTexture, playNextTexture, playPrevTexture, repeatTexture, nonRepeatTexture, shuffleTexture, heartFillTexture, heartStrokeTexture, backTexture;
+    if (!playTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/play.png") || !pauseTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/pause.png") || !playBackTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/arrow-left.png") || !playForwardTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/arrow-right.png") || !playPrevTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/previous.png") || !playNextTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/next.png") || !repeatTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Repeat.png") || !nonRepeatTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Non-Repeat.png") || !shuffleTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Shuffle.png") || !heartFillTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/heart-fill.png") || !heartStrokeTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/heart-stroke.png") || !backTexture.loadFromFile("C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Back.png"))
     {
         error("Error Loading Icons.");
         return 1;
@@ -66,6 +70,7 @@ int player(string username, const string& songFilePath, const string& songImageP
 
 
     Sprite backgroundSprite(background);
+    Sprite backSprite(backTexture);
     Vector2u textureSize = background.getSize(); 
     Vector2u windowSize = window.getSize();
     backgroundSprite.setScale(float(windowSize.x) / textureSize.x, float(windowSize.y) / textureSize.y);
@@ -98,6 +103,8 @@ int player(string username, const string& songFilePath, const string& songImageP
     musician.setStyle(Text::Regular);
     musician.setFillColor(color3);
     musician.setPosition(window.getSize().x / 2 - musician.getGlobalBounds().width / 2, 380);
+
+    backSprite.setPosition(20, 120);
 
     const int numBars = 5;
     RectangleShape bars[numBars];
@@ -167,15 +174,7 @@ int player(string username, const string& songFilePath, const string& songImageP
     bool isPlaying = false;
     bool shuffleOn = false;
 
-    bool isFavourite;
-    if (listener.isFavorites(songName))
-    {
-        isFavourite = true;
-    }
-    else 
-    {
-        isFavourite = false;
-    }
+    bool isFavourite = listener.isFavorites(songName);
 
     PlayMode currentMode = PlayMode::RepeatOff;
 
@@ -300,39 +299,50 @@ int player(string username, const string& songFilePath, const string& songImageP
                         currentMode = PlayMode::RepeatOn;
                     }
                 }
-                if (heartFillSprite.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)){
-                    if (isFavourite == true)
+                if (backSprite.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                {
+                    music.stop();
+                    window.close();
+                    home(username);
+                    return 0;
+                }
+                if (heartFillSprite.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y) ||
+                    heartStrokeSprite.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                {
+                    if (isFavourite)
                     {
-                        if (listener.removeFromFavorites(songName) == 1)
-                        {
+                        if (listener.removeFromFavorites(songName) == 1) {
+                            cout << "Removed from Favorites" << endl;
+                            isFavourite = false;
+                        } 
+                        else if (listener.removeFromFavorites(songName) == 2) {
+                            cout << "Song '" << songName << "' is not in favorites." << endl;
                             isFavourite = false;
                         }
-                        else if (listener.removeFromFavorites(songName) == 2)
-                        {
-                            showPopup(window, "Song Not Found", Vector2f(400, 60));
-                        }
                         else
                         {
-                            showPopup(window, "Error Removing Song", Vector2f(400, 60));
+                            cout << "Error removing song from favorites." << endl;
                         }
                     }
-                }
-                if (heartStrokeSprite.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)){     
-                    if (isFavourite == false)
+                    else
                     {
-                        if (listener.addToFavorites(songName) == 1)
-                        {
+                        if (listener.addToFavorites(songName) == 1) {
+                            cout << "Added to Favorites" << endl;
+                            isFavourite = true;
+                        } 
+                        else if (listener.addToFavorites(songName) == 2) {
+                            cout << "Song '" << songName << "' is already in favorites." << endl;
                             isFavourite = true;
                         }
-                        else if (listener.addToFavorites(songName) == 2)
-                        {
-                            showPopup(window, "Already in Favourites", Vector2f(400, 60));
-                        }
                         else
                         {
-                            showPopup(window, "Song Not Found", Vector2f(400, 60));
+                            cout << "Error adding song to favorites." << endl;
                         }
+                        listener.addToFavorites(songName);
+                        isFavourite = true; 
+                        showPopup(window, "Added to Favorites", Vector2f(400, 60));
                     }
+                    listener.saveToFile();
                 }
             }
         }
@@ -382,6 +392,7 @@ int player(string username, const string& songFilePath, const string& songImageP
         window.draw(musicName);
         window.draw(musician);
         window.draw(playNext);
+        window.draw(backSprite);
         if (isPlaying)
             window.draw(pauseSprite);
         else
@@ -397,11 +408,11 @@ int player(string username, const string& songFilePath, const string& songImageP
         }
         if (isFavourite)
         {
-            window.draw(heartFillSprite);
+            window.draw(heartFillSprite);  // Draw filled heart if favorite
         }
         else
         {
-            window.draw(heartStrokeSprite);
+            window.draw(heartStrokeSprite);  // Draw stroke heart if not favorite
         }
         playerSlider.draw(window);
         window.display();
@@ -409,3 +420,4 @@ int player(string username, const string& songFilePath, const string& songImageP
 
     return 0;
 }
+#endif
