@@ -53,7 +53,7 @@ int registerUser()
 
     Text text2("Who are you?", font, 20);
     text2.setStyle(Text::Bold);
-    text2.setPosition(window.getSize().x / 2 - text2.getCharacterSize() / 2 - 50, 420);
+    text2.setPosition(window.getSize().x / 2 - text2.getCharacterSize() / 2 - 50, 440);
     text2.setFillColor(color);
     
     Text text3("Already Have an Account?", font, 20);
@@ -67,7 +67,7 @@ int registerUser()
     text4.setFillColor(color2);
     
 
-    listenerSprite.setPosition(window.getSize().x / 2 - listenerSprite.getGlobalBounds().width / 2,  450);
+    listenerSprite.setPosition(window.getSize().x / 2 - listenerSprite.getGlobalBounds().width / 2 + 10,  480);
 
     Text usernameText("Username:", font, 20);
     usernameText.setPosition(175, 280);

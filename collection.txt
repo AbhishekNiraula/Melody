@@ -2,6 +2,7 @@ Collection
 Co2|Prateek Kuhad|C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Co2.wav|C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/co2.jpg
 Farkanna Hola|John Rai|C:/Users/Dell/Desktop/Farkanna Hola.wav|C:/Users/Dell/Desktop/sddefault (1).jpg
 Syndicate|Bipul Chettri|C:\Users\Dell\Desktop\Bipul Chettri - Syndicate.wav|C:\Users\Dell\Desktop\artworks-000108303311-ecy5jb-t500x500 (1).jpg
+Bulleya|Papon|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\Bulleya.wav|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\player.jpg
 Favorites
-Syndicate|Bipul Chettri|C:\Users\Dell\Desktop\Bipul Chettri - Syndicate.wav|C:\Users\Dell\Desktop\artworks-000108303311-ecy5jb-t500x500 (1).jpg
 Co2|Prateek Kuhad|C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Co2.wav|C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/co2.jpg
+Bulleya|Papon|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\Bulleya.wav|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\player.jpg
