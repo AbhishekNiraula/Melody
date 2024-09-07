@@ -18,7 +18,7 @@
   - [Prerequisites](#bangbang-prerequisites)
   - [Installation](#gear-installation)
   - [Run Locally](#running-run-locally)
-- [Credit/Acknowledgement](#coin-credit-and-acknowledgement)
+- [Credit/Acknowledgement](#coin-credit-and-acknowledgment)
 
 <!-- People Involved in the project -->
 
