@@ -31,7 +31,7 @@
 	</div>
 	<div>
 		<img src="readmeAssets/sneha.png" alt="Sneha Karna">
-		<h3>Sneha Karna</h3>
+		<h3 color="#071952">Sneha Karna</h3>
 	</div>
 	<div>
 		<img src="readmeAssets/prashan.png" alt="Prashan Chenta Rai">
