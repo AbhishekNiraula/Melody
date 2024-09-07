@@ -26,7 +26,7 @@
 
 <div float="left">
 	<div>
-		<img src="readmeAssets/abhishek.png" alt="Abhishek Niraula" width="50px" height="50px">
+		<img src="readmeAssets/abhishek.png" alt="Abhishek Niraula" width="150px" height="150px">
 		<h3>Abhishek Niraula </h3>
 	</div>
 	<div>
