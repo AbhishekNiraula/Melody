@@ -65,6 +65,20 @@ Our team worked collaboratively to design and build this project from scratch, u
 
 ### :dart: Features
 
+### :dart: Features
+
+- **User Registration**: Allows users to sign up and create an account to access personalized features.
+- **Music Upload**: Musicians can upload their music files (supports `.ogg` and `.wav` formats).
+- **Music Playback**: Users can play, pause, and navigate through the uploaded music with a simple interface.
+- **Favorite Songs**: Users can add songs to their favorites for quick access later.
+- **Usability**: Their are different functionalities like changing music, adding it to favourites, playing/pausing, adding it to repeat/shuffle mode which are directly accesible via well thought UI.
+- **Accessibility**: The features are also accessible via wide set of keyboard shortcuts encorporated.
+- **File Dialog Integration**: Simple and user-friendly file dialog for selecting and uploading music files.
+- **User Interface**: Melody's UI is well thought out and designed especially for optimum user experience.
+- **Dynamic Visualization**: Display visualizations while playing music for an immersive experience.
+- **Cross-Platform Compatibility**: The app runs on Windows, macOS, and Linux using the **SFML** and **TinyFileDialogs** libraries.
+- **Object-Oriented Design**: Built with OOP principles in C++ for modular and maintainable code.
+
 <!-- Color Reference -->
 
 ### :art: Color Pallete
