@@ -189,4 +189,4 @@ This project wouldn't have been possible without the help and inspiration of all
 
 ### :film_projector: Watch Video Demo
 
-[![Watch the video](https://youtu.be/XuAZv7zi-Io?si=CVBBB5Hnj3TeEEqF/hqdefault.jpg)](https://youtu.be/XuAZv7zi-Io?si=CVBBB5Hnj3TeEEqF)
+[![Watch the video](readmeAssets/Thumbnail.png)](https://youtu.be/XuAZv7zi-Io?si=CVBBB5Hnj3TeEEqF)
