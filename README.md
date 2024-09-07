@@ -11,7 +11,7 @@
 - [Team Members](#sunglasses-team-members)
 - [About the Project](#star2-about-the-project)
   - [Screenshots](#camera-screenshots)
-  - [Technology Used](#space_invader-tech-stack)
+  - [Technology Used](#space_invader-technology-used)
   - [Feature Details](#dart-features)
 - [Run Project Locally](#toolbox-getting-started)
   - [Prerequisites](#bangbang-prerequisites)
@@ -44,7 +44,15 @@ Our team worked collaboratively to design and build this project from scratch, u
 
 <!-- TechStack -->
 
-### :space_invader: Tech Stack
+### :space_invader: Technology Used
+
+| ![C++](https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg) | ![SFML](https://www.sfml-dev.org/download/goodies/sfml-icon-small.png) | ![ImGui](https://raw.githubusercontent.com/ocornut/imgui/master/docs/images/logo_small.png) |
+| :------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
+|                                     **C++**                                      |                                **SFML**                                |                                          **ImGui**                                          |
+
+- **C++** for core development
+- **SFML** for graphical interface and audio handling
+- **ImGui** for the file dialog and user interface components
 
 <details>
   <summary>Client</summary>
