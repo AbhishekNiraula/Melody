@@ -157,3 +157,26 @@ Ensure you have the following software installed:
 
 Make sure that both **SFML** and **TinyFileDialogs** libraries are available and linked properly during runtime to avoid errors.
 `
+
+### :coin: Credit and Acknowledgment
+
+We would like to express our deepest gratitude to everyone who contributed to the development and success of the **Melody Tunes** project.
+
+- **Team Members**:
+
+  - Abhishek Niraula
+  - Sneha Karna
+  - Prashan Chenta Rai
+  - Saubhagya Rajbhandari
+
+- **Special Thanks**:
+
+  - **Purwanchal Campus, IOE**: For providing us with the opportunity and resources to work on this project as part of our **Object-Oriented Programming** final submission.
+  - **ACES (Association of Computer Engineering Students)**: For organizing the **C++ project submission** where this app was also showcased.
+  - **Our Faculty**: For their continuous support, guidance, and feedback throughout the project development.
+
+- **Libraries and Tools**:
+  - [SFML](https://www.sfml-dev.org): For providing an excellent framework for multimedia, graphics, and audio handling.
+  - [TinyFileDialogs](https://github.com/native-toolkit/tinyfiledialogs): For providing an easy-to-use file dialog library that was crucial to our project.
+
+This project wouldn't have been possible without the help and inspiration of all the people mentioned above.
