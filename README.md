@@ -9,7 +9,7 @@
 
 # :notebook_with_decorative_cover: Table of Contents
 
-- [People Involved](#people-involved)
+- [Team](#people-involved)
 - [About the Project](#star2-about-the-project)
   - [What is the project](#what-the-project)
   - [Screenshots](#camera-screenshots)
@@ -24,7 +24,7 @@
 
 ## :sunglasses: Team Members
 
-<div>
+<div float="left">
 	<div>
 		<img src="readmeAssets/abhishek.png" alt="Abhishek Niraula">
 		<h3>Abhishek Niraula </h3>
