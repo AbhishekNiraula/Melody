@@ -11,184 +11,358 @@
 
 using namespace std;
 
-class Song {
+class Song
+{
 private:
-    string songName;
-    string musicianName;
-    string filePath;
-    string imagePath;
+	string songName;
+	string musicianName;
+	string filePath;
+	string imagePath;
+	bool valid;
 
 public:
-    Song(const string& songName, const string& musicianName,
-         const string& filePath, const string& imagePath)
-        : songName(songName), musicianName(musicianName),
-          filePath(filePath), imagePath(imagePath) {}
+	Song(const string &songName, const string &musicianName,
+		 const string &filePath, const string &imagePath)
+		: songName(songName), musicianName(musicianName),
+		  filePath(filePath), imagePath(imagePath), valid(true) {}
 
-    string getSongName() const { return songName; }
-    string getMusicianName() const { return musicianName; }
-    string getFilePath() const { return filePath; }
-    string getImagePath() const { return imagePath; }
+	Song() : valid(false) {}
 
-    void printDetails() const {
-        cout << "Song Name: " << songName << endl;
-        cout << "Musician Name: " << musicianName << endl;
-        cout << "File Path: " << filePath << endl;
-        cout << "Image Path: " << imagePath << endl;
-    }
+	string getSongName() const { return songName; }
+	string getMusicianName() const { return musicianName; }
+	string getFilePath() const { return filePath; }
+	string getImagePath() const { return imagePath; }
+	bool isValid() const { return valid; }
 
-    string serialize() const {
-        return songName + "|" + musicianName + "|" + filePath + "|" + imagePath;
-    }
+	void printDetails() const
+	{
+		cout << "Song Name: " << songName << endl;
+		cout << "Musician Name: " << musicianName << endl;
+		cout << "File Path: " << filePath << endl;
+		cout << "Image Path: " << imagePath << endl;
+	}
 
-    static Song deserialize(const string& data) {
-        size_t pos1 = data.find('|');
-        size_t pos2 = data.find('|', pos1 + 1);
-        size_t pos3 = data.find('|', pos2 + 1);
+	string serialize() const
+	{
+		return songName + "|" + musicianName + "|" + filePath + "|" + imagePath;
+	}
 
-        string songName = data.substr(0, pos1);
-        string musicianName = data.substr(pos1 + 1, pos2 - pos1 - 1);
-        string filePath = data.substr(pos2 + 1, pos3 - pos2 - 1);
-        string imagePath = data.substr(pos3 + 1);
+	static Song deserialize(const string &data)
+	{
+		size_t pos1 = data.find('|');
+		size_t pos2 = data.find('|', pos1 + 1);
+		size_t pos3 = data.find('|', pos2 + 1);
 
-        return Song(songName, musicianName, filePath, imagePath);
-    }
+		string songName = data.substr(0, pos1);
+		string musicianName = data.substr(pos1 + 1, pos2 - pos1 - 1);
+		string filePath = data.substr(pos2 + 1, pos3 - pos2 - 1);
+		string imagePath = data.substr(pos3 + 1);
+
+		return Song(songName, musicianName, filePath, imagePath);
+	}
 };
 
-class listener : public User {
+class listener : public User
+{
 private:
-    string name;
-    vector<Song> collection;
-    vector<Song> favorites;
+	string name;
+	vector<Song> collection;
+	vector<Song> favorites;
 
 public:
-    listener(const string& name) : name(name) {}
+	listener(const string &name) : name(name) {}
 
-    void addSong(const Song& song) {
-        collection.push_back(song);
-    }
+	void addSong(const Song &song)
+	{
+		collection.push_back(song);
+	}
 
-    void viewCollection() const {
-        cout << "\n" << name << "'s Music Collection:\n";
-        for (size_t i = 0; i < collection.size(); ++i) {
-            cout << "\nSong " << (i + 1) << ":\n";
-            collection[i].printDetails();
-        }
-    }
+	void viewCollection() const
+	{
+		cout << "\n"
+			 << name << "'s Music Collection:\n";
+		for (size_t i = 0; i < collection.size(); ++i)
+		{
+			cout << "\nSong " << (i + 1) << ":\n";
+			collection[i].printDetails();
+		}
+	}
 
-    void viewFilePath(const string& songName) const {
-        for (const auto& song : collection) {
-            if (song.getSongName() == songName) {
-                cout << "File Path for '" << songName << "': " << song.getFilePath() << endl;
-                return;
-            }
-        }
-        cout << "Song '" << songName << "' not found in the collection." << endl;
-    }
+	void viewFilePath(const string &songName) const
+	{
+		for (const auto &song : collection)
+		{
+			if (song.getSongName() == songName)
+			{
+				cout << "File Path for '" << songName << "': " << song.getFilePath() << endl;
+				return;
+			}
+		}
+		cout << "Song '" << songName << "' not found in the collection." << endl;
+	}
 
-    void deleteSong(const string& songName) {
-        auto it = remove_if(collection.begin(), collection.end(),
-            [&songName](const Song& song) { return song.getSongName() == songName; });
-        collection.erase(it, collection.end());
-    }
+	void deleteSong(const string &songName)
+	{
+		auto it = remove_if(collection.begin(), collection.end(),
+							[&songName](const Song &song)
+							{ return song.getSongName() == songName; });
+		collection.erase(it, collection.end());
+	}
 
-    int addToFavorites(const string& songName) {
-        loadFromFile();
-        for (const auto& song : collection) {
-            if (song.getSongName() == songName) {
-                if (find_if(favorites.begin(), favorites.end(),
-                            [&songName](const Song& fav) { return fav.getSongName() == songName; }) == favorites.end()) {
-                    favorites.push_back(song);
-                    saveToFile();
-                    return 1;
-                } else {
-                    cout << "Song '" << songName << "' is already in favorites." << endl;
-                    return 2;
-                }
-            }
-        }
-        cout << "Song '" << songName << "' not found in the collection." << endl;
-        return 3;
-    }
+	int addToFavorites(const string &songName)
+	{
+		loadFromFile();
+		for (const auto &song : collection)
+		{
+			if (song.getSongName() == songName)
+			{
+				if (find_if(favorites.begin(), favorites.end(),
+							[&songName](const Song &fav)
+							{ return fav.getSongName() == songName; }) == favorites.end())
+				{
+					favorites.push_back(song);
+					saveToFile();
+					return 1;
+				}
+				else
+				{
+					cout << "Song '" << songName << "' is already in favorites." << endl;
+					return 2;
+				}
+			}
+		}
+		cout << "Song '" << songName << "' not found in the collection." << endl;
+		return 3;
+	}
 
-    int removeFromFavorites(const string& songName) {
-        loadFromFile();
-        auto it = find_if(favorites.begin(), favorites.end(),
-                        [&songName](const Song& song) { return song.getSongName() == songName; });
+	int removeFromFavorites(const string &songName)
+	{
+		loadFromFile();
+		auto it = find_if(favorites.begin(), favorites.end(),
+						  [&songName](const Song &song)
+						  { return song.getSongName() == songName; });
 
-        if (it != favorites.end()) {
-            favorites.erase(it);
-            saveToFile();
-            return 1;
-        } else {
-            cout << "Song '" << songName << "' not found in favorites." << endl;
-            return 2;
-        }
-    }
+		if (it != favorites.end())
+		{
+			favorites.erase(it);
+			saveToFile();
+			return 1;
+		}
+		else
+		{
+			cout << "Song '" << songName << "' not found in favorites." << endl;
+			return 2;
+		}
+	}
 
-    void saveToFile() const {
-        ofstream outFile("collection.txt");
-        if (!outFile) {
-            cerr << "Error opening file for writing." << endl;
-            return;
-        }
+	void saveToFile() const
+	{
+		ofstream outFile("collection.txt");
+		if (!outFile)
+		{
+			cerr << "Error opening file for writing." << endl;
+			return;
+		}
 
-        outFile << "Collection\n";
-        for (const auto& song : collection) { 
-            outFile << song.serialize() << endl;
-        }
+		outFile << "Collection\n";
+		for (const auto &song : collection)
+		{
+			outFile << song.serialize() << endl;
+		}
 
-        outFile << "Favorites\n";
-        for (const auto& song : favorites) {
-            outFile << song.serialize() << endl;
-        }
+		outFile << "Favorites\n";
+		for (const auto &song : favorites)
+		{
+			outFile << song.serialize() << endl;
+		}
 
-        outFile.close();
-    }
+		outFile.close();
+	}
 
-    void loadFromFile() {
-        collection.clear();  // Clear collection and favorites before loading
-        favorites.clear();
-        ifstream inFile("collection.txt");
-        if (!inFile) {
-            cerr << "Error opening file for reading." << endl;
-            return;
-        }
+	void loadFromFile()
+	{
+		collection.clear(); // Clear collection and favorites before loading
+		favorites.clear();
+		ifstream inFile("collection.txt");
+		if (!inFile)
+		{
+			cerr << "Error opening file for reading." << endl;
+			return;
+		}
 
-        string line;
-        string section;
-        while (getline(inFile, line)) {
-            if (line == "Collection") {
-                section = "Collection";
-            } else if (line == "Favorites") {
-                section = "Favorites";
-            } else {
-                if (section == "Collection") {
-                    collection.push_back(Song::deserialize(line));
-                } else if (section == "Favorites") {
-                    favorites.push_back(Song::deserialize(line));
-                }
-            }
-        }
+		string line;
+		string section;
+		while (getline(inFile, line))
+		{
+			if (line == "Collection")
+			{
+				section = "Collection";
+			}
+			else if (line == "Favorites")
+			{
+				section = "Favorites";
+			}
+			else
+			{
+				if (section == "Collection")
+				{
+					collection.push_back(Song::deserialize(line));
+				}
+				else if (section == "Favorites")
+				{
+					favorites.push_back(Song::deserialize(line));
+				}
+			}
+		}
 
-        inFile.close();
-    }
+		inFile.close();
+	}
 
-    bool isFavorites(const string& name) const {
-        for (const auto& song : favorites) {
-            if (song.getSongName() == name) {
-                return true;
-            }
-        }
-        return false;
-    }
+	bool isFavorites(const string &name) const
+	{
+		for (const auto &song : favorites)
+		{
+			if (song.getSongName() == name)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 
-    const vector<Song>& getCollection() const {
-        return collection;
-    }
+	const vector<Song> &getCollection() const
+	{
+		return collection;
+	}
 
-    const vector<Song>& getFavorites() const {
-        return favorites;
-    }
+	const vector<Song> &getFavorites() const
+	{
+		return favorites;
+	}
+	Song getNextSong(string songName, bool shuffleOn, bool fromFavourite)
+	{
+		if (!fromFavourite)
+		{
+			for (size_t i = 0; i < collection.size(); ++i)
+			{
+				if (collection[i].getSongName() == songName)
+				{
+					if (shuffleOn)
+					{
+						int randomIndex = rand() % collection.size();
+						return collection[randomIndex];
+					}
+					else
+					{
+						if (i == collection.size() - 1 && i != 0)
+						{
+							return collection[0];
+						}
+						else if (i == 0 && collection.size() == 1)
+						{
+							return Song();
+						}
+						else
+						{
+							return collection[i + 1];
+						}
+					}
+				}
+			}
+		}
+		if (fromFavourite)
+		{
+			for (size_t i = 0; i < favorites.size(); ++i)
+			{
+				if (favorites[i].getSongName() == songName)
+				{
+					if (shuffleOn)
+					{
+						int randomIndex = rand() % favorites.size();
+						return favorites[randomIndex];
+					}
+					else
+					{
+						if (i == favorites.size() - 1 && i != 0)
+						{
+							return favorites[0];
+						}
+						else if (i == 0 && favorites.size() == 1)
+						{
+							return Song();
+						}
+						else
+						{
+							return favorites[i + 1];
+						}
+					}
+				}
+			}
+		}
+		return Song();
+	}
+	Song getPrevSong(string songName, bool shuffleOn, bool fromFavourite)
+	{
+		if (!fromFavourite)
+		{
+			for (size_t i = 0; i < collection.size(); ++i)
+			{
+				if (collection[i].getSongName() == songName)
+				{
+					if (shuffleOn)
+					{
+						int randomIndex = rand() % collection.size();
+						return collection[randomIndex];
+					}
+					else
+					{
+						if (i == 0 && collection.size() != 1)
+						{
+							return collection[collection.size() - 1];
+						}
+						else if (i == 0 && collection.size() == 1)
+						{
+							return Song();
+						}
+						else
+						{
+							return collection[i - 1];
+						}
+					}
+				}
+			}
+		}
+		if (fromFavourite)
+		{
+			for (size_t i = 0; i < favorites.size(); ++i)
+			{
+				if (favorites[i].getSongName() == songName)
+				{
+					if (shuffleOn)
+					{
+						int randomIndex = rand() % favorites.size();
+						return favorites[randomIndex];
+					}
+					else
+					{
+						if (i == 0 && favorites.size() != 1)
+						{
+							return favorites[favorites.size() - 1];
+						}
+						else if (i == 0 && favorites.size() == 1)
+						{
+							return Song();
+						}
+						else
+						{
+							return favorites[i - 1];
+						}
+					}
+				}
+			}
+		}
+		return Song();
+	}
 };
 
 #endif
