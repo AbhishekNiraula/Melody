@@ -18,6 +18,7 @@
   - [Prerequisites](#bangbang-prerequisites)
   - [Installation](#gear-installation)
   - [Run Locally](#running-run-locally)
+- [Credit/Acknowledgement](#coin-credit-and-Acknowledgement)
 
 <!-- People Involved in the project -->
 
@@ -68,4 +69,5 @@ Our team worked collaboratively to design and build this project from scratch, u
 
 - **Secondary Color**: `#FD3A69` – A vibrant coral red that adds energy and highlights key elements, enhancing the user experience.  
   ![#FD3A69](https://via.placeholder.com/20/FD3A69/000000?text=+) `#FD3A69`
-<!-- Getting Started -->
+
+### :coin: Credit and Acknowledgement
