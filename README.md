@@ -22,26 +22,11 @@
 
 <!-- People Involved in the project -->
 
-## :sunglasses: Team Members
+## 😎 Team Members
 
-<div float="left">
-	<div>
-		<img src="readmeAssets/abhishek.png" alt="Abhishek Niraula" width="150px" height="150px">
-		<h3>Abhishek Niraula </h3>
-	</div>
-	<div>
-		<img src="readmeAssets/sneha.png" alt="Sneha Karna">
-		<h3 color="#071952">Sneha Karna</h3>
-	</div>
-	<div>
-		<img src="readmeAssets/prashan.png" alt="Prashan Chenta Rai">
-		<h3>Prashan Chenta Rai</h3>
-	</div>
-	<div>
-		<img src="readmeAssets/saubhagya.png" alt="Saubhagya Rajbhandari">
-		<h3>Saubhagya Rajbhandari</h3>
-	</div>
-</div>
+| ![Abhishek Niraula](readmeAssets/abhishek.png) | ![Sneha Karna](readmeAssets/sneha.png) | ![Prashan Chenta Rai](readmeAssets/prashan.png) | ![Saubhagya Rajbhandari](readmeAssets/saubhagya.png) |
+| :--------------------------------------------: | :------------------------------------: | :---------------------------------------------: | :--------------------------------------------------: |
+|              **Abhishek Niraula**              |            **Sneha Karna**             |             **Prashan Chenta Rai**              |              **Saubhagya Rajbhandari**               |
 
 <!-- About the Project -->
 
