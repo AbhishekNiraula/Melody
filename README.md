@@ -9,7 +9,7 @@
 
 # :notebook_with_decorative_cover: Table of Contents
 
-- [Team](#people-involved)
+- [Team Members](#sunglasses-team-members)
 - [About the Project](#star2-about-the-project)
   - [What is the project](#what-the-project)
   - [Screenshots](#camera-screenshots)
@@ -22,7 +22,7 @@
 
 <!-- People Involved in the project -->
 
-## 😎 Team Members
+## :sunglasses: Team Members
 
 | ![Abhishek Niraula](readmeAssets/abhishek.png) | ![Sneha Karna](readmeAssets/sneha.png) | ![Prashan Chenta Rai](readmeAssets/prashan.png) | ![Saubhagya Rajbhandari](readmeAssets/saubhagya.png) |
 | :--------------------------------------------: | :------------------------------------: | :---------------------------------------------: | :--------------------------------------------------: |
