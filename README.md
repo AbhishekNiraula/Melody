@@ -2,7 +2,6 @@
 
   <img src="readmeAssets/icon.png" alt="logo" width="200" height="auto" />
   <h1>:musical_note: Melody Tunes :musical_note:</h1>
-  <br />
 </div>
 
 <!-- Table of Contents -->
@@ -11,7 +10,6 @@
 
 - [Team Members](#sunglasses-team-members)
 - [About the Project](#star2-about-the-project)
-  - [What is the project](#what-the-project)
   - [Screenshots](#camera-screenshots)
   - [Technology Used](#space_invader-tech-stack)
   - [Feature Details](#dart-features)
@@ -24,6 +22,8 @@
 
 ## :sunglasses: Team Members
 
+Our team worked collaboratively to design and build this project from scratch, utilizing **C++** and various libraries for the app interface and functionality.
+
 | ![Abhishek Niraula](readmeAssets/abhishek.png) | ![Sneha Karna](readmeAssets/sneha.png) | ![Prashan Chenta Rai](readmeAssets/prashan.png) | ![Saubhagya Rajbhandari](readmeAssets/saubhagya.png) |
 | :--------------------------------------------: | :------------------------------------: | :---------------------------------------------: | :--------------------------------------------------: |
 |              **Abhishek Niraula**              |            **Sneha Karna**             |             **Prashan Chenta Rai**              |              **Saubhagya Rajbhandari**               |
@@ -31,6 +31,8 @@
 <!-- About the Project -->
 
 ## :star2: About the Project
+
+**Melody Tunes** is a dynamic and interactive music player application developed in **C++**. This project was created for submission to the **ACES C++ Project** as well as the final project submission for the **Object-Oriented Programming** course in the **First Year, Second Part of Electronics Engineering** at **Purwanchal Campus, IOE**.
 
 <!-- Screenshots -->
 
