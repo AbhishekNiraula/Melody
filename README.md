@@ -4,6 +4,7 @@
   <h1>:musical_note: Melody Tunes :musical_note:</h1>
   
   <br />
+</div>
 
 <!-- Table of Contents -->
 # :notebook_with_decorative_cover: Table of Contents
