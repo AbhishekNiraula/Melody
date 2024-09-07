@@ -46,9 +46,9 @@ Our team worked collaboratively to design and build this project from scratch, u
 
 ### :space_invader: Technology Used
 
-| ![C++](https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg) | ![SFML](https://www.sfml-dev.org/download/goodies/sfml-icon-small.png) | ![TinyFileDialogs](https://tinyfiledialogs.sourceforge.net/favicon.ico) |
-| :------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :---------------------------------------------------------------------: |
-|                                     **C++**                                      |                                **SFML**                                |                           **TinyFileDialogs**                           |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width="100px" height="100px"> | <img src="https://www.sfml-dev.org/download/goodies/sfml-icon-small.png" width="100px" height="100px"> | <img src="https://cdn-icons-png.flaticon.com/512/176/176083.png" width="100px" height="100px"> |
+| :---------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
+|                                                      **C++**                                                      |                                                **SFML**                                                |                                      **TinyFileDialogs**                                       |
 
 - **C++** for core development
 - **SFML** for graphical interface and audio handling
