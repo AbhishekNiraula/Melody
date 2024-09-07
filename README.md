@@ -19,6 +19,7 @@
   - [Installation](#gear-installation)
   - [Run Locally](#running-run-locally)
 - [Credit/Acknowledgement](#coin-credit-and-acknowledgment)
+- [Watch Video Demo](#film_projector-watch-video-demo)
 
 <!-- People Involved in the project -->
 
@@ -185,3 +186,7 @@ We would like to express our deepest gratitude to everyone who contributed to th
   - [TinyFileDialogs](https://github.com/native-toolkit/tinyfiledialogs): For providing an easy-to-use file dialog library that was crucial to our project.
 
 This project wouldn't have been possible without the help and inspiration of all the people mentioned above.
+
+### :film_projector: Watch Video Demo
+
+[![Watch the video](https://youtu.be/XuAZv7zi-Io?si=CVBBB5Hnj3TeEEqF/hqdefault.jpg)](https://youtu.be/XuAZv7zi-Io?si=CVBBB5Hnj3TeEEqF)
