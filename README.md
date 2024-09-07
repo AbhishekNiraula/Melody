@@ -1,7 +1,7 @@
 <div align="center">
 
   <img src="readmeAssets/icon.png" alt="logo" width="200" height="auto" />
-  <h1>:musical_note:  $${\color{blue} Melody }$$ Melody $${\color{pink} Tunes }$$ :musical_note:</h1>
+  <h1>:musical_note: Melody Tunes :musical_note:</h1>
   
   <p>
     :musical_note: An awesome README template for your projects! :musical_note:
