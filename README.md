@@ -90,20 +90,70 @@ Ensure you have the following software installed:
 
 ### :gear: Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/AbhishekNiraula/Melody.git
-   cd Melody
-   ```
-2. Install necessary dependencies:
+1. **Clone the repository**:
 
-   Install SFML and TinyFileDialogs (use your package manager or follow the library instructions).
+   ```bash
+   git clone https://github.com/your-repo/melody-tunes.git
+   cd melody-tunes
+   ```
 
-3. Build the project
-   ```bash
-   make
-   ```
-   OR [For windows]
-   ```bash
-   mingw32-make
-   ```
+2. **Install SFML**:
+
+   - Download **SFML** from the official site: [SFML Downloads](https://www.sfml-dev.org/download.php).
+
+   - **Linux**:
+
+     Use a package manager like `apt` to install SFML:
+
+     ```bash
+     sudo apt-get install libsfml-dev
+     ```
+
+   - **Windows**:
+
+     Follow the [SFML Windows Installation Guide](https://www.sfml-dev.org/tutorials/2.5/start-vc.php) for Visual Studio or MinGW setup.
+
+   - **Mac**:
+
+     Install SFML using **Homebrew**:
+
+     ```bash
+     brew install sfml
+     ```
+
+3. **Install TinyFileDialogs**:
+
+   - Download **TinyFileDialogs** from the official GitHub repository: [TinyFileDialogs GitHub](https://github.com/native-toolkit/tinyfiledialogs).
+
+   - Include the `tinyfiledialogs.h` and `tinyfiledialogs.c` files in your project directory.
+
+   - **Linux**:
+
+     Install TinyFileDialogs using the package manager:
+
+     ```bash
+     sudo apt-get install tinyfiledialogs
+     ```
+
+### :running: Run Locally
+
+1. **Build the Project**:
+
+   - If you are using a **Makefile**, build the project by running:
+
+     ```bash
+     make
+     ```
+
+   - Ensure that the **SFML** and **TinyFileDialogs** libraries are properly linked in your **Makefile** or **IDE**.
+
+2. **Run the Project**:
+
+   - After successfully building the project, run the executable:
+
+     ```bash
+     ./melody_tunes
+     ```
+
+Make sure that both **SFML** and **TinyFileDialogs** libraries are available and linked properly during runtime to avoid errors.
+`
