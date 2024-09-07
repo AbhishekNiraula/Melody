@@ -11,25 +11,12 @@
 
 - [About the Project](#star2-about-the-project)
   * [Screenshots](#camera-screenshots)
-  * [Tech Stack](#space_invader-tech-stack)
-  * [Features](#dart-features)
-  * [Color Reference](#art-color-reference)
-  * [Environment Variables](#key-environment-variables)
-- [Getting Started](#toolbox-getting-started)
+  * [Technology Used](#space_invader-tech-stack)
+  * [Feature Details](#dart-features)
+- [Run Project Locally](#toolbox-getting-started)
   * [Prerequisites](#bangbang-prerequisites)
   * [Installation](#gear-installation)
-  * [Running Tests](#test_tube-running-tests)
   * [Run Locally](#running-run-locally)
-  * [Deployment](#triangular_flag_on_post-deployment)
-- [Usage](#eyes-usage)
-- [Roadmap](#compass-roadmap)
-- [Contributing](#wave-contributing)
-  * [Code of Conduct](#scroll-code-of-conduct)
-- [FAQ](#grey_question-faq)
-- [License](#warning-license)
-- [Contact](#handshake-contact)
-- [Acknowledgements](#gem-acknowledgements)
-
   
 
 <!-- About the Project -->
