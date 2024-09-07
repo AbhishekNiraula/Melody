@@ -13,10 +13,12 @@
   - [Screenshots](#camera-screenshots)
   - [Technology Used](#space_invader-technology-used)
   - [Feature Details](#dart-features)
+  - [Color Pallete](#art-color-pallete)
 - [Run Project Locally](#toolbox-getting-started)
   - [Prerequisites](#bangbang-prerequisites)
   - [Installation](#gear-installation)
   - [Run Locally](#running-run-locally)
+- [Credit/Acknowledgement](#coin-credit-and-Acknowledgement)
 
 <!-- People Involved in the project -->
 
@@ -59,22 +61,13 @@ Our team worked collaboratively to design and build this project from scratch, u
 
 <!-- Color Reference -->
 
-### :art: Color Reference
+### :art: Color Pallete
 
-- **Primary Color**: `#071952` – This deep blue serves as the base color for the **Melody Tunes** interface, symbolizing professionalism and depth.
-  <div style="width:100px;height:100px;background-color:#071952">Hello</div>
+- **Primary Color**: `#071952` – This deep blue serves as the base color for the **Melody Tunes** interface, symbolizing professionalism and depth.  
+  ![#071952](https://via.placeholder.com/20/071952/000000?text=+) `#071952`
 
-- **Secondary Color**: `#FD3A69` – A vibrant coral red that adds energy and highlights key elements, enhancing the user experience.
-  <div style="width:100px;height:100px;background-color:#FD3A69">World</div>
-<!-- Env Variables -->
-
-### :key: Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
+- **Secondary Color**: `#FD3A69` – A vibrant coral red that adds energy and highlights key elements, enhancing the user experience.  
+  ![#FD3A69](https://via.placeholder.com/20/FD3A69/000000?text=+) `#FD3A69`
 
 <!-- Getting Started -->
 
@@ -114,127 +107,3 @@ Ensure you have the following software installed:
    ```bash
    mingw32-make
    ```
-
-<!-- Running Tests -->
-
-### :test_tube: Running Tests
-
-To run tests, run the following command
-
-```bash
-  yarn test test
-```
-
-<!-- Run Locally -->
-
-### :running: Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/Louis3797/awesome-readme-template.git
-```
-
-Go to the project directory
-
-```bash
-  cd my-project
-```
-
-Install dependencies
-
-```bash
-  yarn install
-```
-
-Start the server
-
-```bash
-  yarn start
-```
-
-<!-- Deployment -->
-
-### :triangular_flag_on_post: Deployment
-
-To deploy this project run
-
-```bash
-  yarn deploy
-```
-
-<!-- Usage -->
-
-## :eyes: Usage
-
-Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
-
-```javascript
-import Component from 'my-project';
-
-function App() {
-	return <Component />;
-}
-```
-
-<!-- Roadmap -->
-
-## :compass: Roadmap
-
-- [x] Todo 1
-- [ ] Todo 2
-
-<!-- Contributing -->
-
-## :wave: Contributing
-
-<a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Louis3797/awesome-readme-template" />
-</a>
-
-Contributions are always welcome!
-
-See `contributing.md` for ways to get started.
-
-<!-- Code of Conduct -->
-
-### :scroll: Code of Conduct
-
-Please read the [Code of Conduct](https://github.com/Louis3797/awesome-readme-template/blob/master/CODE_OF_CONDUCT.md)
-
-<!-- FAQ -->
-
-## :grey_question: FAQ
-
-- Question 1
-
-  - Answer 1
-
-- Question 2
-
-  - Answer 2
-
-<!-- License -->
-
-## :warning: License
-
-Distributed under the no License. See LICENSE.txt for more information.
-
-<!-- Contact -->
-
-## :handshake: Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
-
-<!-- Acknowledgments -->
-
-## :gem: Acknowledgements
-
-Use this section to mention useful resources and libraries that you have used in your projects.
-
-- [Shields.io](https://shields.io/)
-- [Awesome README](https://github.com/matiassingers/awesome-readme)
-- [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
-- [Readme Template](https://github.com/othneildrew/Best-README-Template)
