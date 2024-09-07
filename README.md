@@ -62,11 +62,10 @@ Our team worked collaboratively to design and build this project from scratch, u
 ### :art: Color Reference
 
 - **Primary Color**: `#071952` – This deep blue serves as the base color for the **Melody Tunes** interface, symbolizing professionalism and depth.
-
-  <div style="width:100px;height:100px;background-color:#071952"></div>
+  <div style="width:100px;height:100px;background-color:#071952">Hello</div>
 
 - **Secondary Color**: `#FD3A69` – A vibrant coral red that adds energy and highlights key elements, enhancing the user experience.
-  <div style="width:100px;height:100px;background-color:#FD3A69"></div>
+  <div style="width:100px;height:100px;background-color:#FD3A69">World</div>
 <!-- Env Variables -->
 
 ### :key: Environment Variables
