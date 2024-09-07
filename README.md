@@ -80,26 +80,40 @@ To run this project, you will need to add the following environment variables to
 
 ## :toolbox: Getting Started
 
+Follow the instructions below to run the project on your local machine.
+
 <!-- Prerequisites -->
 
 ### :bangbang: Prerequisites
 
-This project uses Yarn as package manager
+Ensure you have the following software installed:
 
-```bash
- npm install --global yarn
-```
+- **C++ compiler**: (e.g., `g++`, `clang`)
+- **SFML library**: For graphics and audio handling
+- **TinyFileDialogs**: For file browsing functionality
+- **Makefile**: If using a `Makefile` to automate build steps
 
 <!-- Installation -->
 
 ### :gear: Installation
 
-Install my-project with npm
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AbhishekNiraula/Melody.git
+   cd Melody
+   ```
+2. Install necessary dependencies:
 
-```bash
-  yarn install my-project
-  cd my-project
-```
+   Install SFML and TinyFileDialogs (use your package manager or follow the library instructions).
+
+3. Build the project
+   ```bash
+   make
+   ```
+   OR [For windows]
+   ```bash
+   mingw32-make
+   ```
 
 <!-- Running Tests -->
 
