@@ -1,7 +1,4 @@
 Collection
-Co2|Prateek Kuhad|C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Co2.wav|C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/co2.jpg
 Syndicate|Bipul Chettri|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\Bipul Chettri - Syndicate.wav|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\artworks-000108303311-ecy5jb-t500x500.jpg
-Bulleya|Papon|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\Bulleya.wav|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\player.jpg
-Sparsha Sangeet|Purna Rai|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\Sparsha Sangeet - Purna Rai.wav|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\sddefault (1).jpg
 Favorites
-Co2|Prateek Kuhad|C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/Co2.wav|C:/Users/Dell/Desktop/Learning/C++ Project/Coding/static/co2.jpg
+Syndicate|Bipul Chettri|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\Bipul Chettri - Syndicate.wav|C:\Users\Dell\Desktop\Learning\C++ Project\Coding\static\artworks-000108303311-ecy5jb-t500x500.jpg

@@ -40,11 +40,16 @@ Our team worked collaboratively to design and build this project from scratch, u
 
 ### :camera: Screenshots
 
-<div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
+<div align="center">
+  <img src="readmeAssets/screenshot1.png" alt="Register Page" width="300" height="auto" />
+  <p><strong>Register Page</strong></p>
+  <img src="readmeAssets/screenshot2.png" alt="HomePage" width="300" height="auto" />
+  <p><strong>HomePage</strong></p>
+  <img src="readmeAssets/screenshot3.png" alt="Upload Music Page" width="300" height="auto" />
+  <p><strong>Upload Music Page</strong></p>
+  <img src="readmeAssets/screenshot4.png" alt="Playing Music Interface" width="300" height="auto" />
+  <p><strong>Playing Music Interface</strong></p>
 </div>
-
-<!-- TechStack -->
 
 ### :space_invader: Technology Used
 
